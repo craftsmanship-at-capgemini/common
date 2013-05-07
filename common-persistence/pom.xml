@@ -4,7 +4,7 @@
     <parent>
         <groupId>eternity</groupId>
         <artifactId>common-build</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>1.0-RC1</version>
         <relativePath>../common-build/pom.xml</relativePath>
     </parent>
     <artifactId>common-persistence</artifactId>
@@ -14,7 +14,7 @@
         <dependency>
             <groupId>eternity</groupId>
             <artifactId>common-testing</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>1.0-RC1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

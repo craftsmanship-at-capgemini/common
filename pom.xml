@@ -4,13 +4,13 @@
     <parent>
         <groupId>eternity</groupId>
         <artifactId>common-build</artifactId>
-        <version>0.1-SNAPSHOT</version>
+        <version>1.0-RC1</version>
         <relativePath>common-build/pom.xml</relativePath>
     </parent>
     <artifactId>common</artifactId>
     <packaging>pom</packaging>
     <name>Reactor project of all common modules</name>
-    <description></description>
+    <description />
     <modules>
         <module>common-build</module>
         <module>common-testing</module>
@@ -27,7 +27,7 @@
         <connection>https://github.com/craftsmanship-at-capgemini/common.git</connection>
         <developerConnection>scm:git:git@github.com:craftsmanship-at-capgemini/clean-javaee.git</developerConnection>
         <url>https://github.com/craftsmanship-at-capgemini/clean-javaee</url>
-        <tag>HEAD</tag>
+        <tag>master</tag>
     </scm>
     <repositories>
         <repository>
@@ -68,5 +68,5 @@
             <timezone>2</timezone>
         </developer>
     </developers>
-    <contributors></contributors>
+    <contributors />
 </project>
