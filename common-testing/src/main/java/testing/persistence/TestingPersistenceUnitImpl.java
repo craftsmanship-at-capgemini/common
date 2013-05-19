@@ -29,8 +29,8 @@ public class TestingPersistenceUnitImpl {
     }
     
     /**
-     * Returns instance of EntityManager for test purpose - preparing state of database or checking
-     * of after test.
+     * Returns instance of EntityManager for test purpose - preparing state of
+     * database or checking of after test.
      */
     public EntityManager getEntityManager() {
         return entityManager;
@@ -62,12 +62,21 @@ public class TestingPersistenceUnitImpl {
         }
     }
     
-    public Query createQuery(Object query) {
-        Query createdQuery = entityManager.createQuery(query.toString());
+    @SuppressWarnings("unchecked")
+    public <T> List<T> executeQuery(Object query) {
+        Query queryObject = entityManager.createQuery(query.toString());
         for (Entry<String, Object> param : Parameters.getMap().entrySet()) {
-            createdQuery.setParameter(param.getKey(), param.getValue());
+            queryObject.setParameter(param.getKey(), param.getValue());
         }
-        return createdQuery;
+        return queryObject.getResultList();
     }
     
+    @SuppressWarnings("unchecked")
+    public <T> T executeSingletonQuery(Object query) {
+        Query queryObject = entityManager.createQuery(query.toString());
+        for (Entry<String, Object> param : Parameters.getMap().entrySet()) {
+            queryObject.setParameter(param.getKey(), param.getValue());
+        }
+        return (T) queryObject.getSingleResult();
+    }
 }
