@@ -4,7 +4,7 @@
     <parent>
         <groupId>eternity</groupId>
         <artifactId>common-build</artifactId>
-        <version>1.0-RC1</version>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../common-build/pom.xml</relativePath>
     </parent>
     <name>Web applications utility module</name>
@@ -14,13 +14,13 @@
         <dependency>
             <groupId>eternity</groupId>
             <artifactId>common-testing</artifactId>
-            <version>1.0-RC1</version>
+            <version>1.0.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>eternity</groupId>
             <artifactId>common-server</artifactId>
-            <version>1.0-RC1</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
