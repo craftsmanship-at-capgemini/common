@@ -5,7 +5,8 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 
 /**
- * TODO MM Write comment to type ClearDatabaseStrategy
+ * Interface of database cleaning strategy. Strategy is used before each test
+ * method.
  * 
  * @author Michal Michaluk <michaluk.michal@gmail.com>
  */

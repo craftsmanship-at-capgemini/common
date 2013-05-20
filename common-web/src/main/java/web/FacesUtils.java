@@ -53,8 +53,12 @@ public class FacesUtils {
                 .getRequestCookieMap();
         String name = injectionPoint.getAnnotated()
                 .getAnnotation(CookieParam.class).value();
-        Cookie cookie = (Cookie) cookieMap.get(name);
-        return cookie;
+        if (cookieMap.containsKey(name)) {
+            Cookie cookie = (Cookie) cookieMap.get(name);
+            return cookie;
+        } else {
+            return null;
+        }
     }
     
     @Produces
@@ -65,8 +69,12 @@ public class FacesUtils {
                 .getRequestCookieMap();
         String name = injectionPoint.getAnnotated()
                 .getAnnotation(CookieParam.class).value();
-        Cookie cookie = (Cookie) cookieMap.get(name);
-        return cookie.getValue();
+        if (cookieMap.containsKey(name)) {
+            Cookie cookie = (Cookie) cookieMap.get(name);
+            return cookie == null ? null : cookie.getValue();
+        } else {
+            return null;
+        }
     }
     
     @Produces

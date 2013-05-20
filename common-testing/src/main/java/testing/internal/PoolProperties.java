@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import testing.persistence.ClearDatabaseStrategy;
 
 /**
- * TODO MM Write comment to type PoolProperties
+ * Provide access to properties of database pool.
  * 
  * @author Michal Michaluk <michaluk.michal@gmail.com>
  */
@@ -23,7 +23,7 @@ public class PoolProperties {
     private Properties properties;
     private List<Map<String, String>> variantProperties;
     private ClearDatabaseStrategy clearDatabaseStrategy = ClearDatabaseStrategy.none;
-    private Map<String, Integer> mappedNames = new HashMap<String, Integer>();;
+    private Map<String, Integer> mappedNames = new HashMap<String, Integer>();
     
     static public Map<String, String> getSubset(String withPrefix, Map<String, String> from) {
         String prefix = withPrefix + ".";
@@ -73,7 +73,8 @@ public class PoolProperties {
             properties.load(ressource);
             return properties;
         } catch (IOException e) {
-            throw new RuntimeException("Can't read pool configuration: file " + path + " is not present in test classpath", e);
+            throw new RuntimeException("Can't read pool configuration: file " + path
+                    + " is not present in test classpath", e);
         }
     }
     
@@ -95,15 +96,21 @@ public class PoolProperties {
                 commonProperties.put(key, properties.getProperty(key));
                 if (key.equals("clear.database.strategy") && !properties.getProperty(key).isEmpty()) {
                     try {
-                        clearDatabaseStrategy = (ClearDatabaseStrategy) Class.forName(properties.getProperty(key)).newInstance();
+                        clearDatabaseStrategy = (ClearDatabaseStrategy) Class.forName(properties.getProperty(key))
+                                .newInstance();
                     } catch (ClassNotFoundException e) {
                         throw new RuntimeException("Class defined as clear.database.strategy not in classpath", e);
                     } catch (InstantiationException e) {
-                        throw new RuntimeException("Class defined as clear.database.strategy has no default constructor", e);
+                        throw new RuntimeException(
+                                "Class defined as clear.database.strategy has no default constructor", e);
                     } catch (IllegalAccessException e) {
-                        throw new RuntimeException("Class defined as clear.database.strategy is not public or has no public constructor", e);
+                        throw new RuntimeException(
+                                "Class defined as clear.database.strategy is not public or has no public constructor",
+                                e);
                     } catch (ClassCastException e) {
-                        throw new RuntimeException("Class defined as clear.database.strategy not implements testing.persistencelayer.ClearDatabaseStrategy", e);
+                        throw new RuntimeException(
+                                "Class defined as clear.database.strategy not implements testing.persistencelayer.ClearDatabaseStrategy",
+                                e);
                     }
                 }
             }

@@ -12,7 +12,8 @@ import javax.persistence.Persistence;
 import testing.internal.PoolProperties;
 
 /**
- * TODO MM Write comment to type TestingPersistenceUnitsPool
+ * Database pooling (not connection pooling) implementation for multi-threaded
+ * tests with database.
  * 
  * @author Michal Michaluk <michaluk.michal@gmail.com>
  * 
@@ -43,7 +44,8 @@ class TestingPersistenceUnitsPool {
             String persistenceUnitVariant = persistenceUnitName + variant;
             poolProperties.setMapedName(persistenceUnitVariant, variant);
             Map<String, String> properties = poolProperties.getProperties(variant);
-            factories.put(persistenceUnitVariant, Persistence.createEntityManagerFactory(persistenceUnitName, properties));
+            factories.put(persistenceUnitVariant,
+                    Persistence.createEntityManagerFactory(persistenceUnitName, properties));
             availablePersistenceUnits.add(persistenceUnitVariant);
         }
     }

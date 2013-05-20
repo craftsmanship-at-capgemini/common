@@ -5,7 +5,8 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 
 /**
- * TODO MM Write comment to type SingleStatementClearDatabaseStrategy
+ * Easiest implementation of {@link ClearDatabaseStrategy}, runs single
+ * statement configured in property <strong>clear.database.statement</strong>.
  * 
  * @author Michal Michaluk <michaluk.michal@gmail.com>
  */
@@ -15,7 +16,7 @@ public class SingleStatementClearDatabaseStrategy implements ClearDatabaseStrate
      * {@inheritDoc}
      * 
      * @see testing.persistence.ClearDatabaseStrategy#cleanDatabase(javax.persistence.EntityManager,
-     * java.util.Map)
+     *      java.util.Map)
      */
     @Override
     public void cleanDatabase(EntityManager entityManager, Map<String, String> properties) {
