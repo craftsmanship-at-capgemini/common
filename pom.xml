@@ -4,7 +4,7 @@
     <parent>
         <groupId>eternity</groupId>
         <artifactId>common-build</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <relativePath>common-build/pom.xml</relativePath>
     </parent>
     <artifactId>common</artifactId>
@@ -27,7 +27,7 @@
         <connection>https://github.com/craftsmanship-at-capgemini/common.git</connection>
         <developerConnection>scm:git:git@github.com:craftsmanship-at-capgemini/common.git</developerConnection>
         <url>https://github.com/craftsmanship-at-capgemini/common</url>
-        <tag>master</tag>
+        <tag>common-1.0.0</tag>
     </scm>
     <repositories>
         <repository>
